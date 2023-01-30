@@ -2,16 +2,14 @@
 using namespace std;
 
 int main() {
- int liczba = 27;
- cout << liczba << endl; 
+ int liczba1, liczba2, wynik_and;
 
- liczba = 27;
- liczba = liczba << 1;
- cout << liczba << endl;
+ liczba1 = 45;
+ liczba2 = 14;
 
- liczba = 27;
- liczba = liczba << 2;
- cout << liczba << endl; 
+ wynik_and = liczba1 & liczba2; //AND 
+ 
+ cout << wynik_and << endl;
  
  return 0;
 }
