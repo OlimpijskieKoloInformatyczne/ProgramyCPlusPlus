@@ -22,11 +22,13 @@ int main() {
  for (i=1; i<=liczba_pytan; ++i) {
     cin >> wartosc_lampek >> numer_lampki;
     zapalenie = wartosc_lampek & maski[numer_lampki];
+cout << wartosc_lampek << " " << numer_lampki << " " << maski[numer_lampki] << " "
+<< zapalenie << endl;
     if ( zapalenie > 0 )
        cout << "DZIALA!" << endl;
     else
        cout << "NAPRAW!" << endl;
  }
-
+	
  return 0;
 }
