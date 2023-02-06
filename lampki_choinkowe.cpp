@@ -5,6 +5,10 @@ using namespace std;
 const int MAX_LAMPKA = 60;
 
 int main() {
+ ios_base::sync_with_stdio(0);
+ cin.tie(0);
+ cout.tie(0);
+ 
  int liczba_pytan, i, numer_lampki;	
  long long akt_maska, wartosc_lampek, zapalenie;
  vector<long long> maski;	
