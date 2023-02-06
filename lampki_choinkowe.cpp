@@ -6,12 +6,12 @@ const int MAX_LAMPKA = 60;
 
 int main() {
  int liczba_pytan, i, numer_lampki;	
- long long akt_maska;
+ long long akt_maska, wartosc_lampek, zapalenie;
  vector<long long> maski;	
  
  cin >> liczba_pytan;
 
- maski.resize(60,0);
+ maski.resize(61,0);
  
  akt_maska = 1;
  for (i=0; i<MAX_LAMPKA; ++i) {
@@ -19,11 +19,14 @@ int main() {
  	akt_maska = akt_maska << 1;
  }
 
- for (i=0; i<MAX_LAMPKA; ++i) {
- 	cout << maski[i] << " ";
+ for (i=1; i<=liczba_pytan; ++i) {
+    cin >> wartosc_lampek >> numer_lampki;
+    zapalenie = wartosc_lampek & maski[numer_lampki];
+    if ( zapalenie > 0 )
+       cout << "DZIALA!" << endl;
+    else
+       cout << "NAPRAW!" << endl;
  }
- cout << endl;
 
- 
  return 0;
 }
