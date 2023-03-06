@@ -26,6 +26,7 @@ int main() {
 */
 
   while ( getline(cin, linia) ) {
+    UsunBialeZnaki(linia);
     cout << "Twoja linia to: " << linia << endl;
   }
 
