@@ -17,10 +17,22 @@ void UsunBialeZnaki(string &napis_zrodlo){
  napis_zrodlo = napis_bez_bialych;
 }
 
+bool CzyString1ZLewejStrony(const string &s1, const string &s2) {
+ if ( s1.size() != s2.size() )
+    return s1.size() > s2.size();
+// jesli sa rownej dlugosci
+ return s1 < s2; 
+}
 
 int main() {
+ ios_base::sync_with_stdio(0);
+ cin.tie(0);
+ cout.tie(0);
+
  string linia;	
  set<string> tekst_oryginalny;
+ set<string, bool (*)(const string &, const string &)> 
+                             linie_plagiatow(CzyString1ZLewejStrony);
  set<string>::iterator it;
  
  getline(cin, linia); //Wczytujemy TEXT1
@@ -33,9 +45,16 @@ int main() {
     tekst_oryginalny.insert(linia);
  }
 
- for (it=tekst_oryginalny.begin(); it!=tekst_oryginalny.end(); ++it)
-    cout << *it << endl; 
+ while ( getline(cin, linia) ) {
+    UsunBialeZnaki(linia); 
+    if ( linia.size() == 0 )
+       continue;
+    if ( tekst_oryginalny.find(linia) != tekst_oryginalny.end() )
+	   linie_plagiatow.insert(linia); 
+ }
 
+ for (it=linie_plagiatow.begin(); it!=linie_plagiatow.end(); ++it)
+    cout << *it << endl; 
+ 
   return 0;
 }
-
