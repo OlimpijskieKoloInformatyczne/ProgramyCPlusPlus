@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string>
+#include <set>
 using namespace std;
 
 void UsunBialeZnaki(string &napis_zrodlo){
@@ -18,17 +20,22 @@ void UsunBialeZnaki(string &napis_zrodlo){
 
 int main() {
  string linia;	
-/*
- linia = "Ala ma	kota   ";
- cout << linia << endl;
- UsunBialeZnaki(linia);
- cout << linia << endl;
-*/
-
-  while ( getline(cin, linia) ) {
+ set<string> tekst_oryginalny;
+ set<string>::iterator it;
+ 
+ getline(cin, linia); //Wczytujemy TEXT1
+ while ( getline(cin, linia) ) {
     UsunBialeZnaki(linia);
-    cout << "Twoja linia to: " << linia << endl;
-  }
+    if (linia == "TEXT2")
+       break;
+    if ( linia.size() == 0 )
+       continue;    
+    tekst_oryginalny.insert(linia);
+ }
+
+ for (it=tekst_oryginalny.begin(); it!=tekst_oryginalny.end(); ++it)
+    cout << *it << endl; 
 
   return 0;
 }
+
