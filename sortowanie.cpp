@@ -6,7 +6,7 @@ using namespace std;
 int main() {
  vector<int> wzrosty;
  vector<int>::iterator it;
- int i;
+ int i, index;
  int szukany_wzrost, znaleziony_wzrost;
 
  wzrosty.resize(20);
@@ -18,6 +18,7 @@ int main() {
 
 sort( wzrosty.begin()+1, wzrosty.begin()+5+1 );
  it = lower_bound(wzrosty.begin()+1, wzrosty.begin()+5+1, 170);
- cout << *it << endl; 
+ index = it - wzrosty.begin();
+ cout << wzrosty[index]  << endl; 
  return 0;
 }
