@@ -1,9 +1,11 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 int main() {
  vector<int> wzrosty;
+ vector<int>::iterator it;
  int i;
  int szukany_wzrost, znaleziony_wzrost;
 
@@ -14,17 +16,8 @@ int main() {
  wzrosty[4] = 200; 
  wzrosty[5] = 180; 
 
- szukany_wzrost = 180;
- znaleziony_wzrost = -1;
- for (i=1; i<=5; ++i) {
-    if ( szukany_wzrost == wzrosty[i] )
-       znaleziony_wzrost = szukany_wzrost;
- }
- if ( szukany_wzrost == znaleziony_wzrost )
-    cout << "MAM!" << endl; 
- else
-    cout << "SORRY GREGORRY!" << endl; 
- 
- 
+sort( wzrosty.begin()+1, wzrosty.begin()+5+1 );
+ it = lower_bound(wzrosty.begin()+1, wzrosty.begin()+5+1, 170);
+ cout << *it << endl; 
  return 0;
 }
