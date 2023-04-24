@@ -3,11 +3,13 @@
 #include <algorithm>  
 using namespace std;
 
-const int ILE_WARTOSCI = 1000;
+const int ILE_WARTOSCI = 2;
+const int ILE_PYTAN = 10;
 
 int main() {
  vector<int> wartosci;
- int i;
+ vector<int>::iterator it;
+ int i, szukana_wartosc, index;
  
  wartosci.resize(ILE_WARTOSCI+1);
 
@@ -22,10 +24,17 @@ int main() {
 
  sort(wartosci.begin(), wartosci.end() );
 
- cout << "a2: Po posrtowaniu" << endl;
+ cout << "a2: Po posortowaniu" << endl;
  for (i=0; i<=ILE_WARTOSCI; ++i)
     cout << wartosci[i] << " ";
  cout << endl;
+
+ for (i=0; i<ILE_PYTAN; ++i) {
+    szukana_wartosc = i;
+    it = lower_bound (wartosci.begin(), wartosci.begin()+ILE_WARTOSCI, szukana_wartosc);
+    index = it - wartosci.begin();
+    cout << "Szukamy: " << szukana_wartosc << ", Znaleziono na index: " << index << ", wartosc: " << wartosci[index] << endl;
+ }
 
  
  return 0;
