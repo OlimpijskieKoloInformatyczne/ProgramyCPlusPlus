@@ -3,7 +3,7 @@ using namespace std;
 
 int main() {
  
- int stan_konta, kwota_przelewu;
+ long long stan_konta, kwota_przelewu;
 
  cin >> stan_konta >> kwota_przelewu;
  
